@@ -1,0 +1,69 @@
+<!-- Content specific to the Programs page goes here -->
+<section class="main-section">
+
+    <div class="program-columns">
+        <div class="program-column">
+            <h3>Bachelor of Science in Information Systems</h3>
+            <p>Our undergraduate program provides a comprehensive understanding of information systems, preparing students for entry-level positions in the field.</p>
+            <button onclick="showDetails('bsis')">More Details</button>
+        </div>
+
+        <div class="program-column">
+            <h3>Master of Science in Information Systems</h3>
+            <p>Our graduate program is designed for individuals seeking advanced knowledge and skills in information systems, preparing them for leadership roles.</p>
+            <button onclick="showDetails('msis')">More Details</button>
+        </div>
+
+        <div class="program-column">
+            <h3>Ph.D. in Information Systems</h3>
+            <p>Our doctoral program is for those interested in conducting cutting-edge research in information systems, shaping the future of the field.</p>
+            <button onclick="showDetails('phdis')">More Details</button>
+        </div>
+    </div>
+</section>
+
+<!-- Hidden details section (will be dynamically populated) -->
+<section id="programDetails" style="display: none;">
+    <h2>Program Details</h2>
+    <div id="detailsContent"></div>
+</section>
+
+<script>
+    // Function to show program details
+    function showDetails(program) {
+        const detailsContent = document.getElementById('detailsContent');
+        const programDetails = getProgramDetails(program);
+
+        // Populate details content
+        detailsContent.innerHTML = `<h3>${programDetails.title}</h3><p>${programDetails.description}</p>`;
+
+        // Display the details section
+        document.getElementById('programDetails').style.display = 'block';
+    }
+
+    // Function to get program details (replace with actual details)
+    function getProgramDetails(program) {
+        switch (program) {
+            case 'bsis':
+                return {
+                    title: 'Bachelor of Science in Information Systems',
+                    description: 'Our undergraduate program provides a comprehensive understanding of information systems, preparing students for entry-level positions in the field.'
+                };
+            case 'msis':
+                return {
+                    title: 'Master of Science in Information Systems',
+                    description: 'Our graduate program is designed for individuals seeking advanced knowledge and skills in information systems, preparing them for leadership roles.'
+                };
+            case 'phdis':
+                return {
+                    title: 'Ph.D. in Information Systems',
+                    description: 'Our doctoral program is for those interested in conducting cutting-edge research in information systems, shaping the future of the field.'
+                };
+            default:
+                return {
+                    title: 'Program Title',
+                    description: 'Program description goes here.'
+                };
+        }
+    }
+</script>
